@@ -1,5 +1,6 @@
 package com.ibm.userservice.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -19,12 +20,10 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String firstName;
-	private String lastName;
+	private Gender gender;
 	private String password;
 	private String userName;
-	private Date birthDate;
-	private Date createdDate;
+	private LocalDateTime createdDate;
 	private String email;
 	private String userProfilePicLink;
 }

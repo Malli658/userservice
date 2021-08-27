@@ -1,5 +1,6 @@
 package com.ibm.userservice.services;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,8 @@ public class UserServiceIml implements UserService{
 	@Override
 	public User save(User user) throws UserAlreadyExistException {
 		if(userRepository.getUserByUserEmail(user.getEmail()).isPresent())
-			throw new UserAlreadyExistException(user.getEmail());
+			throw new UserAlreadyExistException(user.getEmail()+": this email is already exist please login or try another email id ");
+		user.setCreatedDate(LocalDateTime.now());
 		user=userRepository.save(user);
 		return user;
 	}
