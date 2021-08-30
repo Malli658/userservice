@@ -9,4 +9,6 @@ public interface UserService {
     public Boolean validateUserName(String userName);
     public User getUserByUserName(String userName) throws UserNotFoundException;
     public User getUserByUserId(Long id) throws UserNotFoundException;
+    
+    public String updateProPic(Long id,String url) throws UserNotFoundException;
 }
